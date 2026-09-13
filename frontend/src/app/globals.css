@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  --bg-base: #0a0d18;
+  --bg-surface: #141829;
+  --bg-card: #1b2038;
+  --bg-card-hover: #242b4b;
+  --accent-xp: #8b5cf6;
+  --accent-xp-glow: rgba(139, 92, 246, 0.4);
+  --accent-gold: #f59e0b;
+  --accent-gold-glow: rgba(245, 158, 11, 0.4);
+  --accent-cyan: #06b6d4;
+  --accent-danger: #f43f5e;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-bright: rgba(139, 92, 246, 0.3);
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: #2a335a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3e4b85;
+}
+
+/* Glassmorphic & Glow utilities */
+.glass-panel {
+  background: rgba(20, 24, 41, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-card {
+  background: rgba(27, 32, 56, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  background: rgba(36, 43, 75, 0.8);
+  border-color: var(--border-bright);
+  transform: translateY(-2px);
+}
+
+.xp-glow {
+  box-shadow: 0 0 15px var(--accent-xp-glow);
+}
+
+.gold-glow {
+  box-shadow: 0 0 15px var(--accent-gold-glow);
+}
+
+/* Floating animation for reward notifications */
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateY(-20px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(1.05);
+  }
+}
+
+.animate-float-up {
+  animation: floatUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
